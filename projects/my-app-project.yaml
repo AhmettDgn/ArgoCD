@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: my-app-project
+  namespace: argocd
+spec:
+  description: My App deployments
+  sourceRepos:
+    - https://github.com/AhmettDgn/ArgoCD.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: production
+  namespaceResourceWhitelist:
+    - group: 'apps'
+      kind: Deployment
+    - group: ''
+      kind: Service
+    - group: 'networking.k8s.io'
+      kind: Ingress
