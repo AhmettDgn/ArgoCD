@@ -1,5 +1,5 @@
 replicaCount: 2
 
 ingress:
-  enabled: false
+  enabled: true
   host: my-app.prod.example.com
